@@ -42,7 +42,6 @@ double riemann_sum(size_t a, size_t b, size_t n, size_t thread_count){
     #pragma omp parallel for num_threads(thread_count) default(none) shared(delta, a,b,n) private(rectangle_height) reduction(+:result)
     for (size_t i = 0; i < n; ++i){
         if (i * delta + a <= b){
-        #pragma omp critical
             rectangle_height = function( (i * delta) + 1);
             result += delta * rectangle_height;
         }
