@@ -43,6 +43,7 @@ int start_race() {
     running_track_destroy(running_track);
     running_track = NULL;
     pthread_mutex_lock(&mutex_running_track);
+    
     for (int i = 0 ; i < NUM_LANES; ++i) {
         runner_destroy(run_data_list[i].runner);
     }
